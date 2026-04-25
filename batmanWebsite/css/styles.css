@@ -590,6 +590,7 @@ a:hover{
 
 #art img{
    width: 100%;
+   height: auto;
    
    padding: var(--space-3);
 }

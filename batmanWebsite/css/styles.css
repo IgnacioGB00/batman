@@ -112,7 +112,7 @@
 }
 
 body{
-   background: var(--bat-black);
+   /* background: var(--bat-black); */
    overflow-x: hidden;
    min-height: 100vh;
    position: relative;

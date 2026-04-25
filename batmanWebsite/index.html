@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="./img/BatmanHeader.avif" type="image/avif">
+
+    <link rel="stylesheet" href="./css/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="./css/styles.css"></noscript>
+    <script src="./js/batman.js" defer></script>
+    <title>batman</title>
+</head>
+<body>
+    <div class="nubes"></div>
+
+    <div id="batMobile" class="flex flexColum">
+        <img src="./img/batMobile.avif" alt="batMobile" class="mobile hidden">
+    </div>
+
+    <header class="flex flexColum">
+        <nav class="flex flexRow">
+            <a href="index.html"><img src="./img/logo.svg" alt="logo de batman"></a>
+            <input type="checkbox" name="hanburger" id="hamburger">
+            <label for="hamburger" id="manu-hamburger" class="flex flexColum">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <ul id="navContent" class="flex flexColum">
+                    <li><a href="#series" class="text navlink">The series</a></li>
+                    <li><a href="#Characters" class="text navlink">Characters</a></li>
+                    <li><a href="#Episodes" class="text navlink">Episodes</a></li>
+                    <li><a href="#art" class="text navlink">Art and Design</a></li>
+                    <li><a href="#music" class="text navlink">Music and Audio</a></li>
+                </ul>
+            </label>
+        </nav>
+        <article class="flex flexColum" id="banerMain">
+            <h1 class="title">BATMAN</h1>
+            <img src="./img/BatmanHeader.avif" alt="logo de batman" fetchpriority="high" loading="eager">
+            <p class="text">The series that reinvented the Dark Knight. <br> (1992-1995)</p>
+            <div id="bannerButton" class="flex flexRow">
+                <button class="buttonMain" type="button">EXPLORE THE SERIES</button>
+                <a href="#art" class="text buttonSecond">Music and Audio</a>
+            </div>
+        </article>
+    </header>
+
+    <main class="flex flexColum">
+        <section id="series" class="flex flexColum">
+            <h2 class="title reveal from-right">The Birth of a Legend</h2>
+            <p class="backgroundBlack text reveal from-right">Batman: The Animated Series wasn't just a cartoon; it was a visual revolution. Inspired by the Dark Deco aesthetic, the production used black paper instead of white for its backgrounds, achieving an unprecedented atmosphere of shadows and mystery.</p>
+            <ul class="backgroundBlack flex flexColum reveal from-right">
+                <li>
+                    <h4 class="text colorYellow">Premiere</h4>
+                    <p class="text">September 5, 1992</p>
+                </li>
+                <li>
+                    <h4 class="text colorYellow">Creators</h4>
+                    <p class="text">Bruce Timm & Eric Radomski</p>
+                </li>
+                <li>
+                    <h4 class="text colorYellow">Studio</h4>
+                    <p class="text">Warner Bros. Animation</p>
+                </li>
+                <li>
+                    <h4 class="text colorYellow">Awards</h4>
+                    <p class="text">Multiple Emmy Award winner</p>
+                </li>
+            </ul>
+            <picture class="seriesImg reveal from-left">
+                <source srcset="./img/serieBatmanMobile.avif" media="(max-width: 949px)">
+                <img src="./img/serieBatman.avif" alt="batman" loading="lazy" width="530" height="530" class="imgWith">
+            </picture>
+        </section>
+
+        <section id="Characters">
+            <h2 class="title reveal from-right">Gotham's Finest & Foulest</h2>
+            <img src="./img/batman.avif" alt="batman character" id="character" class="reveal from-right" loading="lazy" width="364" height="316">
+            <article class="backgroundBlack flex flexColum reveal from-left" id="infCharacter">
+                <h3 class="title" id="name">Batman</h3>
+                <ul class="flexColum flex">
+                    <li>
+                        <h4 class="text colorYellow">Identity</h4>
+                        <p class="text" id="identity">Bruce Wayne</p>
+                    </li>
+                    <li>
+                        <h4 class="text colorYellow">Role</h4>
+                        <p class="text" id="role">The Dark Knight & Protector of Gotham.</p>
+                    </li>
+                    <li>
+                        <h4 class="text colorYellow">Descriptione</h4>
+                        <p class="text" id="description">Driven by a childhood tragedy, he uses his intellect, martial arts mastery, and high-tech arsenal to fight crime.</p>
+                    </li>
+                </ul>
+            </article>
+            <ul id="charactersImg" class="flex flexRaw reveal from-bottom">
+                <li><img src="./img/batmanSelect.avif" alt="batman" class="ImgCharcter active" loading="lazy"></li>
+                <li><img src="./img/robinSelect.avif" alt="robin" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/batgirlSelect.avif" alt="batgirl" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/alfretSelect.avif" alt="alfred" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/gordonSelect.avif" alt="gordon" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/harveySelect.avif" alt="harvey" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/jokerSelect.avif" alt="joker" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/harleySelect.avif" alt="harley" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/baneSelect.avif" alt="bane" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/twoFaceSelect.avif" alt="two-face" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/ghulSelect.avif" alt="ras al ghul" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/clayfaceSelect.avif" alt="clayface" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/catWomanSelect.avif" alt="catwoman" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/penguinSelect.avif" alt="penguin" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/scarecrowSelect.avif" alt="scarecrow" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/riddlerSelect.avif" alt="riddler" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/crocSelect.avif" alt="killer croc" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/freezeSelect.avif" alt="mr freeze" class="ImgCharcter Disabled" loading="lazy"></li>
+                <li><img src="./img/poisonSelect.avif" alt="poison ivy" class="ImgCharcter Disabled" loading="lazy"></li>
+            </ul>
+        </section>
+
+        <section id="Episodes" class="flex flexColum">
+            <h2 class="title reveal from-right">Case Files</h2>
+            <div class="cards flex reveal from-right">
+                <article class="card flex" id="EpisodeIce">
+                    <div class="backgroundBlack">
+                        <p class="text"><span class="colorYellow">Episode 14/Season 1:</span> Heart of Ice</p>
+                        <p class="text"><span class="colorYellow">Director:</span> Bruce Timm</p>
+                        <p class="text"><span class="colorYellow">Synopsis:</span> Seeking revenge on the corporate giant who caused his tragic accident, Mr. Freeze begins a chilling crime spree. Batman must stop him while uncovering the heartbreaking truth about Freeze's past.</p>
+                    </div>
+                </article>
+                <article class="card flex" id="EpisodeTwoFace">
+                    <div class="backgroundBlack">
+                        <p class="text"><span class="colorYellow">Episode 10 and 11/Season 1:</span> Two-Face: Part I & II</p>
+                        <p class="text"><span class="colorYellow">Director:</span> Kevin Altieri</p>
+                        <p class="text"><span class="colorYellow">Synopsis:</span> District Attorney Harvey Dent's repressed anger and a tragic accident turn him into the coin-flipping criminal Two-Face. Batman fights to save his former friend's soul from his own dark duality.</p>
+                    </div>
+                </article>
+                <article class="card flex" id="EpisodeAlmost">
+                    <div class="backgroundBlack">
+                        <p class="text"><span class="colorYellow">Episode 46/Season 1:</span> Almost Got 'Im</p>
+                        <p class="text"><span class="colorYellow">Director:</span> Eric Radomski</p>
+                        <p class="text"><span class="colorYellow">Synopsis:</span> Five of Gotham's deadliest villains gather for a high-stakes poker game, each telling the story of how they almost defeated Batman. Little do they know, a surprise awaits them at the end of the night.</p>
+                    </div>
+                </article>
+                <article class="drag">
+                    <p class="text">PLACE BATCARD HERE</p>
+                </article>
+            </div>
+            <button class="buttonMain" type="button">EXPLORE THE SERIES</button>
+        </section>
+
+        <section id="art">
+            <img src="./img/darkDecoOne.avif" alt="batman's styles art deco image" class="roteLeft" loading="lazy">
+            <img src="./img/darkDecoTwo.avif" alt="batman's styles art deco image" class="roteRight" loading="lazy">
+            <article class="flex flexColum">
+                <h2 class="title reveal from-right">Dark Deco Aesthetic</h2>
+                <p class="text reveal from-right">An analysis of the geometric lines and architecture of Gotham City, inspired by the 1930s and 40s.</p>
+            </article>
+            <img src="./img/darkDecoThree.avif" alt="batman's styles art deco image" class="roteLeft" loading="lazy">
+            <img src="./img/darkDecoFour.avif" alt="batman's styles art deco image" class="roteRight" loading="lazy">
+        </section>
+
+        <section id="music">
+            <article>
+                <h2 class="title reveal from-right">The Sounds of Gotham</h2>
+                <p class="text backgroundBlack reveal from-right">The music, led by Danny Elfman's iconic theme and Shirley Walker's orchestral compositions, gave the series a unique cinematic quality.</p>
+            </article>
+            <div class="flex flexColum reveal from-left">
+                <img src="./img/playButton.svg" alt="button play" id="playButton">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <article class="flex flexColum">
+            <img src="./img/BatmanHeader.avif" alt="logo batman" class="widthImg">
+            <p class="text">"I am vengeance. I am the night. I am Batman."</p>
+            <div class="socials flex flexRow">
+                <a href="https://www.youtube.com/@dcofficial/videos" target="_blank"><img src="./img/youtube.svg" alt="youtube icon" loading="lazy"></a>
+                <a href="https://www.facebook.com/dc/?locale=es_LA" target="_blank"><img src="./img/facebook.svg" alt="facebook icon" loading="lazy"></a>
+                <a href="https://www.instagram.com/dccomics/?hl=es-la"><img src="./img/instagram.svg" alt="instagram icon" loading="lazy"></a>
+            </div>
+        </article>
+        <ul id="navfoter" class="flex flexColum">
+            <li><a href="#series" class="text">The series</a></li>
+            <li><a href="#Characters" class="text">Characters</a></li>
+            <li><a href="#Episodes" class="text">Episodes</a></li>
+            <li><a href="#art" class="text">Art and Design</a></li>
+            <li><a href="#music" class="text">Music and Audio</a></li>
+        </ul>
+        <p class="text finalText">& © DC COMICS | WARNER BROS. ENTERTAINMENT INC. FAN TRIBUTE PROJECT.</p>
+    </footer>
+
+    <!-- IntersectionObserver - reemplaza AOS completamente -->
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

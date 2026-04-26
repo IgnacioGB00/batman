@@ -222,7 +222,7 @@ a:hover { color: var(--bat-amber) !important; }
 .active { border: var(--bat-gold) solid 1px; }
 .widthImg {
   width: 100%;
-  @media (min-width: 768px) { width: 281px; }
+  height: auto;
 }
 
 /* ── DISABLED (personajes) ──────────────────────────────── */
@@ -548,7 +548,9 @@ footer article { gap: var(--space-6); }
   #art img { width: 433px; }
 
   footer article { align-items: start !important; }
-
+  footer article img{
+    align-self: start !important;
+  }
   #navfoter {
     flex-direction: row;
     height: auto;

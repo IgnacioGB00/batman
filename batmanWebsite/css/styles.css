@@ -270,6 +270,7 @@ header {
   box-sizing: border-box;
   nav {
     width: 95%;
+    height: 11%;
     background-color: rgba(22, 33, 62, 0.8);
   }
 }

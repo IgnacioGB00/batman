@@ -331,10 +331,9 @@ nav {
   justify-content: center;
   position: relative;
   gap: var(--space-3);
-  img { width: 93vw; max-width: 364px; z-index: 1; height: auto; }
+  img { width: 364px; z-index: 1; height: auto; }
   h1  { font-size: 4rem; position: relative; top: 6vh; }
   @media (min-width: 768px) {
-    img { width: 70vh; }
     h1  { font-size: 9rem; top: 14vh; }
   }
 }

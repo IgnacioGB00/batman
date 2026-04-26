@@ -221,7 +221,7 @@ a  { transition: color 0.4s ease; }
 a:hover { color: var(--bat-amber) !important; }
 .active { border: var(--bat-gold) solid 1px; }
 .widthImg {
-  width: 100%;
+  width: 180px;
   height: auto;
 }
 

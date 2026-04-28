@@ -588,6 +588,12 @@ nav {
   overflow-x: hidden;
   justify-items: center;
   gap: var(--space-4);
+  transition: opacity 0.25s ease; /* ajusta el tiempo a tu gusto */
+}
+
+
+#character.fade-out {
+  opacity: 0;
 }
 
 @media (min-width: 768px) {

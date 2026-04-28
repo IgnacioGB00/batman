@@ -48,39 +48,49 @@ characterSelect.forEach((select, index) => {
   select.addEventListener('click', () => {
     if (!select.classList.contains('Disabled')) return;
 
-    const character = batmanCharacters[index]; // ✅ lectura de JS puro, no del DOM
+    const character = batmanCharacters[index];
     if (!character) return;
 
+    // Actualizar selector activo
     requestAnimationFrame(() => {
-      // Escrituras agrupadas — un solo reflow al final del frame
       characterSelect.forEach((img) => {
         img.classList.remove('active');
         img.classList.add('Disabled');
       });
-
       select.classList.add('active');
       select.classList.remove('Disabled');
+    });
 
-      characterImg.src                   = character.img;
-      nameCharacter.textContent          = character.name;
-      identityCharacter.textContent      = character.identity;
-      roleCharacter.textContent          = character.role;
-      descriptionCharacter.textContent   = character.description;
+    // 1️⃣ Fade OUT — agregar clase que baja la opacidad
+    characterImg.classList.remove('animation');
+    characterImg.classList.add('fade-out');
 
-      // Quitar clases de animación primero
-      characterImg.classList.remove('animation');
-      nameCharacter.classList.remove('animation');
-      identityCharacter.classList.remove('animation');
-      descriptionCharacter.classList.remove('animation');
+    // 2️⃣ Esperar que termine el CSS transition del fade-out
+    characterImg.addEventListener('transitionend', function onFadeOut() {
+      characterImg.removeEventListener('transitionend', onFadeOut);
 
-      // Segundo frame: añadir animación cuando el DOM ya actualizó
+      // 3️⃣ Cambiar src cuando ya está invisible
+      characterImg.src = character.img;
+
+      // 4️⃣ Fade IN del texto y la imagen nueva
+      nameCharacter.textContent        = character.name;
+      identityCharacter.textContent    = character.identity;
+      roleCharacter.textContent        = character.role;
+      descriptionCharacter.textContent = character.description;
+
+      [nameCharacter, identityCharacter, descriptionCharacter].forEach(el => {
+        el.classList.remove('animation');
+      });
+
+      characterImg.classList.remove('fade-out');
+
       requestAnimationFrame(() => {
         characterImg.classList.add('animation');
         nameCharacter.classList.add('animation');
         identityCharacter.classList.add('animation');
         descriptionCharacter.classList.add('animation');
       });
-    });
+    }, { once: true });
   });
 });
 

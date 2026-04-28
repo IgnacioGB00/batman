@@ -595,7 +595,7 @@ nav {
 }
 
 .animation {
-  animation: zoomAnimetio 0.94s ease-out;
+  animation: zoomAnimetio 0.3s ease-out;
 }
 
 @keyframes zoomAnimetio {

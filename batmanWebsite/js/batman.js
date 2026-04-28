@@ -44,6 +44,8 @@ const playButton           = document.querySelector('#playButton');
 //  CHARACTER SELECTOR
 //  Sin reflow: solo escrituras agrupadas en rAF
 // ═══════════════════════════════════════════════════════════════
+const FADE_DURATION = 300; // debe coincidir con el transition del CSS en ms
+
 characterSelect.forEach((select, index) => {
   select.addEventListener('click', () => {
     if (!select.classList.contains('Disabled')) return;
@@ -51,7 +53,7 @@ characterSelect.forEach((select, index) => {
     const character = batmanCharacters[index];
     if (!character) return;
 
-    // Actualizar selector activo
+    // Actualizar selector activo inmediatamente
     requestAnimationFrame(() => {
       characterSelect.forEach((img) => {
         img.classList.remove('active');
@@ -61,36 +63,40 @@ characterSelect.forEach((select, index) => {
       select.classList.remove('Disabled');
     });
 
-    // 1️⃣ Fade OUT — agregar clase que baja la opacidad
+    // 1️⃣ Fade OUT de la imagen
     characterImg.classList.remove('animation');
     characterImg.classList.add('fade-out');
 
-    // 2️⃣ Esperar que termine el CSS transition del fade-out
-    characterImg.addEventListener('transitionend', function onFadeOut() {
-      characterImg.removeEventListener('transitionend', onFadeOut);
+    // 2️⃣ Esperar exactamente la duración del CSS, luego cambiar src
+    setTimeout(() => {
 
-      // 3️⃣ Cambiar src cuando ya está invisible
+      // Cambiar src cuando ya está invisible
       characterImg.src = character.img;
 
-      // 4️⃣ Fade IN del texto y la imagen nueva
+      // Actualizar texto
       nameCharacter.textContent        = character.name;
       identityCharacter.textContent    = character.identity;
       roleCharacter.textContent        = character.role;
       descriptionCharacter.textContent = character.description;
 
+      // Remover animaciones del texto para resetearlas
       [nameCharacter, identityCharacter, descriptionCharacter].forEach(el => {
         el.classList.remove('animation');
       });
 
-      characterImg.classList.remove('fade-out');
-
+      // 3️⃣ Esperar que el navegador pinte el nuevo src, luego Fade IN
       requestAnimationFrame(() => {
-        characterImg.classList.add('animation');
-        nameCharacter.classList.add('animation');
-        identityCharacter.classList.add('animation');
-        descriptionCharacter.classList.add('animation');
+        characterImg.classList.remove('fade-out');
+
+        requestAnimationFrame(() => {
+          characterImg.classList.add('animation');
+          nameCharacter.classList.add('animation');
+          identityCharacter.classList.add('animation');
+          descriptionCharacter.classList.add('animation');
+        });
       });
-    }, { once: true });
+
+    }, FADE_DURATION);
   });
 });
 

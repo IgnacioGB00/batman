@@ -44,7 +44,7 @@ const playButton           = document.querySelector('#playButton');
 //  CHARACTER SELECTOR
 //  Sin reflow: solo escrituras agrupadas en rAF
 // ═══════════════════════════════════════════════════════════════
-const FADE_DURATION = 300; // debe coincidir con el transition del CSS en ms
+const FADE_DURATION = 300;
 
 characterSelect.forEach((select, index) => {
   select.addEventListener('click', () => {
@@ -53,47 +53,34 @@ characterSelect.forEach((select, index) => {
     const character = batmanCharacters[index];
     if (!character) return;
 
-    // Actualizar selector activo inmediatamente
-    requestAnimationFrame(() => {
-      characterSelect.forEach((img) => {
-        img.classList.remove('active');
-        img.classList.add('Disabled');
-      });
-      select.classList.add('active');
-      select.classList.remove('Disabled');
+    // Actualizar selector activo
+    characterSelect.forEach((img) => {
+      img.classList.remove('active');
+      img.classList.add('Disabled');
     });
+    select.classList.add('active');
+    select.classList.remove('Disabled');
 
-    // 1️⃣ Fade OUT de la imagen
-    characterImg.classList.remove('animation');
+    // Fade OUT de imagen y texto
     characterImg.classList.add('fade-out');
+    nameCharacter.classList.add('fade-out');
+    identityCharacter.classList.add('fade-out');
+    descriptionCharacter.classList.add('fade-out');
 
-    // 2️⃣ Esperar exactamente la duración del CSS, luego cambiar src
     setTimeout(() => {
+      // Cambiar contenido cuando todo está invisible
+      characterImg.src                   = character.img;
+      nameCharacter.textContent          = character.name;
+      identityCharacter.textContent      = character.identity;
+      roleCharacter.textContent          = character.role;
+      descriptionCharacter.textContent   = character.description;
 
-      // Cambiar src cuando ya está invisible
-      characterImg.src = character.img;
-
-      // Actualizar texto
-      nameCharacter.textContent        = character.name;
-      identityCharacter.textContent    = character.identity;
-      roleCharacter.textContent        = character.role;
-      descriptionCharacter.textContent = character.description;
-
-      // Remover animaciones del texto para resetearlas
-      [nameCharacter, identityCharacter, descriptionCharacter].forEach(el => {
-        el.classList.remove('animation');
-      });
-
-      // 3️⃣ Esperar que el navegador pinte el nuevo src, luego Fade IN
+      // Fade IN
       requestAnimationFrame(() => {
         characterImg.classList.remove('fade-out');
-
-        requestAnimationFrame(() => {
-          characterImg.classList.add('animation');
-          nameCharacter.classList.add('animation');
-          identityCharacter.classList.add('animation');
-          descriptionCharacter.classList.add('animation');
-        });
+        nameCharacter.classList.remove('fade-out');
+        identityCharacter.classList.remove('fade-out');
+        descriptionCharacter.classList.remove('fade-out');
       });
 
     }, FADE_DURATION);

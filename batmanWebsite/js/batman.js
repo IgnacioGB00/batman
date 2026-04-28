@@ -61,19 +61,19 @@ characterSelect.forEach((select, index) => {
     select.classList.add('active');
     select.classList.remove('Disabled');
 
-    // Fade OUT de imagen y texto
+    // Fade OUT
     characterImg.classList.add('fade-out');
     nameCharacter.classList.add('fade-out');
     identityCharacter.classList.add('fade-out');
     descriptionCharacter.classList.add('fade-out');
 
     setTimeout(() => {
-      // Cambiar contenido cuando todo está invisible
-      characterImg.src                   = character.img;
-      nameCharacter.textContent          = character.name;
-      identityCharacter.textContent      = character.identity;
-      roleCharacter.textContent          = character.role;
-      descriptionCharacter.textContent   = character.description;
+      // Cambiar contenido estando invisible
+      characterImg.src                 = character.img;
+      nameCharacter.textContent        = character.name;
+      identityCharacter.textContent    = character.identity;
+      roleCharacter.textContent        = character.role;
+      descriptionCharacter.textContent = character.description;
 
       // Fade IN
       requestAnimationFrame(() => {

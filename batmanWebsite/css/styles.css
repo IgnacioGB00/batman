@@ -576,31 +576,34 @@ nav {
 /* ============================================================
    SECCIÓN: PERSONAJES
    ============================================================ */
+.character-wrapper {
+  position: relative;
+}
 
 #Characters {
   display: grid;
   overflow-x: hidden;
   justify-items: center;
   gap: var(--space-4);
+  /* ❌ quita el transition de aquí */
 }
 
+/* ✅ ponlo en la imagen */
 #character {
   transition: opacity 0.3s ease;
-  opacity: 1;
 }
 
 #character.fade-out {
   opacity: 0;
 }
 
-/* Texto también con transition en lugar de animation */
-#name, #identity, #role, #description {
-  transition: opacity 0.3s ease;
-  opacity: 1;
+.animation {
+  animation: zoomAnimetio 0.94s ease-out;
 }
 
-#name.fade-out, #identity.fade-out, #role.fade-out, #description.fade-out {
-  opacity: 0;
+@keyframes zoomAnimetio {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @media (min-width: 768px) {
@@ -665,6 +668,7 @@ nav {
   #character,
   #infCharacter {
     max-width: 456px;
+    height: 396px;
   }
 }
 

@@ -585,11 +585,13 @@ nav {
   overflow-x: hidden;
   justify-items: center;
   gap: var(--space-4);
-  /* ❌ quita el transition de aquí */
+  
 }
 
 /* ✅ ponlo en la imagen */
 #character {
+  display: block;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 
@@ -597,13 +599,16 @@ nav {
   opacity: 0;
 }
 
-.animation {
-  animation: zoomAnimetio 0.94s ease-out;
+#name, #identity, #role, #description {
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
-@keyframes zoomAnimetio {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+#name.fade-out,
+#identity.fade-out,
+#role.fade-out,
+#description.fade-out {
+  opacity: 0;
 }
 
 @media (min-width: 768px) {
